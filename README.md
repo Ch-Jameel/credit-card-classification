@@ -41,16 +41,16 @@ weighted avg       1.00      1.00      1.00     85443
    [   38   109]]
   ```
 
-- **Interpretation**:
-  - **Precision (class 1)**: 0.95, indicating that 95% of the transactions predicted as fraudulent are actually fraudulent.
-  - **Recall (class 1)**: 0.74, meaning 74% of actual fraudulent transactions were correctly identified.
-  - **F1-Score**: The F1-score for fraudulent transactions is 0.83, reflecting the balance between precision and recall.
-  - **Overall Accuracy**: The model achieved an accuracy of 99.95%, showcasing excellent performance.
+- Interpretation:
+  - Precision (class 1): 0.95, indicating that 95% of the transactions predicted as fraudulent are actually fraudulent.
+  - Recall (class 1): 0.74, meaning 74% of actual fraudulent transactions were correctly identified.
+  - F1-Score: The F1-score for fraudulent transactions is 0.83, reflecting the balance between precision and recall.
+  - Overall Accuracy: The model achieved an accuracy of 99.95%, showcasing excellent performance.
 
 ### 2. Artificial Neural Network (ANN)
 The ANN model struggled with the class imbalance, failing to detect any fraudulent transactions during evaluation.
 
-- **Classification Report**:
+- Classification Report:
   ```
                precision    recall  f1-score   support
 
@@ -62,18 +62,18 @@ The ANN model struggled with the class imbalance, failing to detect any fraudule
 weighted avg       1.00      1.00      1.00     85443
   ```
 
-- **Confusion Matrix**:
+- Confusion Matrix:
   ```
   [[85296     0]
    [  147     0]]
   ```
 
-- **Interpretation**:
-  - **Precision (class 1)**: 0.00, as the model did not identify any fraudulent transactions.
-  - **Recall (class 1)**: 0.00, indicating that none of the actual fraudulent transactions were correctly classified.
+- Interpretation:
+  - Precision (class 1): 0.00, as the model did not identify any fraudulent transactions.
+  - Recall (class 1): 0.00, indicating that none of the actual fraudulent transactions were correctly classified.
   - The ANN model overfits to the majority class (class 0) and completely misses the minority class (class 1), suggesting further adjustments like resampling or adjusting class weights are necessary.
 
 ## Conclusion
 
-- **Random Forest** significantly outperformed the ANN in this task, achieving high precision and recall for detecting fraud.
-- The **ANN model** failed to generalize to the minority class (fraudulent transactions), possibly due to class imbalance. Future improvements could include rebalancing the dataset or adjusting the model’s training procedure.
+- Random Forest significantly outperformed the ANN in this task, achieving high precision and recall for detecting fraud.
+- The ANN model failed to generalize to the minority class (fraudulent transactions), possibly due to class imbalance. Future improvements could include rebalancing the dataset or adjusting the model’s training procedure.
