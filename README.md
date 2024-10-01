@@ -32,16 +32,15 @@ The Random Forest model displayed strong performance in classifying fraudulent t
 
     accuracy                           1.00     85443
    macro avg       0.97      0.87      0.92     85443
-weighted avg       1.00      1.00      1.00     85443
-  ```
+weighted avg       1.00      1.00      1.00     85443```
 
-- **Confusion Matrix**:
+- **Classification Report**:
   ```
   [[85290     6]
    [   38   109]]
   ```
 
-- Interpretation:
+- **Interpretation**:
   - Precision (class 1): 0.95, indicating that 95% of the transactions predicted as fraudulent are actually fraudulent.
   - Recall (class 1): 0.74, meaning 74% of actual fraudulent transactions were correctly identified.
   - F1-Score: The F1-score for fraudulent transactions is 0.83, reflecting the balance between precision and recall.
@@ -59,21 +58,35 @@ The ANN model struggled with the class imbalance, failing to detect any fraudule
 
     accuracy                           1.00     85443
    macro avg       0.50      0.50      0.50     85443
-weighted avg       1.00      1.00      1.00     85443
-  ```
+weighted avg       1.00      1.00      1.00     85443```
 
-- Confusion Matrix:
+- **Confusion Matrix**:
   ```
   [[85296     0]
-   [  147     0]]
-  ```
+   [  147     0]]```
 
-- Interpretation:
-  - Precision (class 1): 0.00, as the model did not identify any fraudulent transactions.
-  - Recall (class 1): 0.00, indicating that none of the actual fraudulent transactions were correctly classified.
-  - The ANN model overfits to the majority class (class 0) and completely misses the minority class (class 1), suggesting further adjustments like resampling or adjusting class weights are necessary.
+- **Interpretation**:
+- Precision (class 1): 0.00, as the model did not identify any fraudulent transactions.
+- Recall (class 1): 0.00, indicating that none of the actual fraudulent transactions were correctly classified.
+- The ANN model overfits to the majority class (class 0) and completely misses the minority class (class 1), suggesting further adjustments like resampling or adjusting class weights are necessary.
 
-## Conclusion
+### 2. Conclusion
 
 - Random Forest significantly outperformed the ANN in this task, achieving high precision and recall for detecting fraud.
 - The ANN model failed to generalize to the minority class (fraudulent transactions), possibly due to class imbalance. Future improvements could include rebalancing the dataset or adjusting the model’s training procedure.
+
+
+
+### 3. Important Note
+
+The models in this project were trained and evaluated **without explicitly addressing the data imbalance**. This decision was made deliberately to assess and compare how well each model generalizes to an imbalanced dataset where fraudulent transactions (class 1) are vastly outnumbered by legitimate ones (class 0). 
+Random Forest managed to perform reasonably well despite the imbalance, while the **ANN model** struggled to identify fraudulent transactions correctly.
+
+### Handling Data Imbalance
+To improve model performance on imbalanced datasets like this one, the following techniques can be applied:
+
+- Resampling the Dataset:
+  - Oversampling the minority class (fraud) or undersampling the majority class (legitimate) to create a more balanced distribution.
+  
+- Adjusting Class Weights:
+  - Assigning higher weights to the minority class during model training helps the model pay more attention to the underrepresented class.
